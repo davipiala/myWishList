@@ -1,0 +1,22 @@
+<div class="container">
+    <form (ngSubmit)="addItem()" #addItemForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="item.name" name="name">
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price</label>
+        <select class="form-control" id="price" [(ngModel)]="item.price" name="price" required>
+            <option *ngFor="let price of prices" [value]="price">{{price}}</option>
+         </select>
+      </div>
+
+      <div class="form-group">
+        <label for="link">Link</label>
+        <input type="text" class="form-control" id="link" [(ngModel)]="item.link" name="link" required>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!addItemForm.form.valid">Add item!</button>
+    </form>
+</div>

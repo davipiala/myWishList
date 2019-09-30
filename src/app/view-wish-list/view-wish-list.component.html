@@ -1,0 +1,18 @@
+<table class="table table-hover text-center">
+    <thead>
+        <tr>
+            <th class="text-center" scope="col"> Item </th>
+            <th class="text-center" scope="col"> Price </th>
+            <th class="text-center" scope="col"> Action </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of items; let i = index">
+            <td> {{ item.name }} </td>
+            <td> {{ item.price }} </td>
+            <td>
+                <a class="btn btn-primary btn-block" href="{{ item.link }}" role="button">Buy!</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

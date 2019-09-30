@@ -1,0 +1,33 @@
+<table class="table table-hover text-center">
+    <thead>
+        <tr>
+            <th class="text-center" scope="col"> Item </th>
+            <th class="text-center" scope="col"> Price </th>
+            <th class="text-center" scope="col"> Action </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of items; let i = index">
+            <td> {{ item.name }} </td>
+            <td> {{ item.price }} </td>
+            <td>
+                <div class="containter">
+                    <div class="row justify-content-around">
+                        <div class="col-3">
+                            <a class="btn btn-primary btn-block" href="{{ item.link }}" role="button">Buy!</a>
+                        </div>
+                        <div class="col-3">
+                            <button type="button" class="btn btn-primary btn-block" (click)="deleteItem(item, i)">Delete</button> 
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class='text-center' [hidden]="!formHidden">
+    <button type="button" class="btn btn-primary" (click)="openForm()">Add item</button> 
+</div>  
+<div [hidden]="formHidden">
+    <app-add-item-form></app-add-item-form>
+</div>
